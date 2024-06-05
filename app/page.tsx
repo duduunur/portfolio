@@ -1,4 +1,4 @@
-import { BlogPosts } from 'app/components/posts'
+import { Projects } from 'app/components/projects'
 
 export default function Page() {
   return (
@@ -7,10 +7,10 @@ export default function Page() {
         Dudunur Isik
       </h1>
       <p className="mb-4">
-        {`Beschreibung`}
+        {`Studentin der Teilstudiengänge Informatik & Design Interaktiver Medien an der Bergischen Universität Wuppertal`}
       </p>
       <div className="my-8">
-        <BlogPosts />
+        <Projects />
       </div>
     </section>
   )
