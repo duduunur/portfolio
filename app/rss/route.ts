@@ -1,10 +1,10 @@
 import { baseUrl } from 'app/sitemap'
-import { getBlogPosts } from 'app/blog/utils'
+import { getProjects } from 'app/work/utils'
 
 export async function GET() {
-  let allBlogs = await getBlogPosts()
+  let allProjects = await getProjects()
 
-  const itemsXml = allBlogs
+  const itemsXml = allProjects
     .sort((a, b) => {
       if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
         return -1
@@ -12,13 +12,13 @@ export async function GET() {
       return 1
     })
     .map(
-      (post) =>
+      (project) =>
         `<item>
-          <title>${post.metadata.title}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
-          <description>${post.metadata.summary || ''}</description>
+          <title>${project.metadata.title}</title>
+          <link>${baseUrl}/work/${project.slug}</link>
+          <description>${project.metadata.summary || ''}</description>
           <pubDate>${new Date(
-            post.metadata.publishedAt
+            project.metadata.publishedAt
           ).toUTCString()}</pubDate>
         </item>`
     )

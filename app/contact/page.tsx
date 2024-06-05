@@ -1,13 +1,16 @@
 
 export const metadata = {
-  title: 'Blog',
-  description: 'Read my blog.',
+  title: 'Kontakt',
+  description: 'Kontakt Informationen',
 }
 
 export default function Page() {
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Contact me</h1>
+      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Kontakt</h1>
+      <p className="mb-4">
+        {`hello@dudunurisik.de`}
+      </p>
     </section>
   )
 }

@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export function GET(request: Request) {
-  const title = 'Next.js Portfolio Starter';
+  const title = 'Dudunur Isik';
 
   return new ImageResponse(
     (
