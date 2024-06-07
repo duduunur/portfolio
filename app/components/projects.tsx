@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { /*formatDate,*/ getProjects } from 'app/work/utils'
+import Image from 'next/image';
 
 export function Projects() {
   let allProjects = getProjects()
@@ -30,6 +31,14 @@ export function Projects() {
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {project.metadata.title}
               </p>
+            </div>
+            <div className="relative h-70">
+            <Image
+               alt={project.metadata.title}
+              src={project.metadata.image}
+              width = "600"
+              height= "1000"
+              />
             </div>
           </Link>
         ))}
