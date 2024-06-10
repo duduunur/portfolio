@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+.custom-bg-opacity {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;

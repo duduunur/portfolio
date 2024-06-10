@@ -3,6 +3,7 @@ import path from 'path'
 
 type Metadata = {
   title: string
+  subtitle: string
   publishedAt: string
   summary: string
   image: string
@@ -52,7 +53,7 @@ function getMDXData(dir) {
 export function getProjects() {
   return getMDXData(path.join(process.cwd(), 'app', 'work', 'projects'))
 }
-{/*
+
 export function formatDate(date: string, includeRelative = false) {
   let currentDate = new Date()
   if (!date.includes('T')) {
@@ -88,4 +89,4 @@ export function formatDate(date: string, includeRelative = false) {
 
   return `${fullDate} (${formattedDate})`
 }
-*/}
+
