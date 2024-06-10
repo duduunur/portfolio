@@ -4,11 +4,11 @@ export const baseUrl = 'https://dudunurisik.de'
 
 export default async function sitemap() {
   let projects = getProjects().map((project) => ({
-    url: `${baseUrl}/work/${project.slug}`,
+    url: `${baseUrl}/${project.slug}`,
     lastModified: project.metadata.publishedAt,
   }))
 
-  let routes = ['', '/work'].map((route) => ({
+  let routes = [''].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))
