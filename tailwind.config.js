@@ -1,6 +1,6 @@
-
+// tailwind.config.js
 module.exports = {
-    future: {
-      hoverOnlyWhenSupported: true,
-    },
-  }
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+}
