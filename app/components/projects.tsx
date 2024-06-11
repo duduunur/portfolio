@@ -27,10 +27,12 @@ export function Projects() {
                 width="600"
                 height="1000"
               />
-              <div className="absolute inset-0 z-10 flex justify-center items-center text-l text-white font-medium bg-black custom-bg-opacity opacity-0 hover:opacity-100 duration-300">
-                <div className="text-center">
-                  {project.metadata.title} <br />
-                  {project.metadata.subtitle}
+              <div className="absolute inset-0 z-10 flex text-l text-black bg-white font-light custom-bg-opacity opacity-0 hover:opacity-100 duration-300">
+               <div className="ml-3 mt-2">
+                 {project.metadata.title} <br />
+                   <span style={{ fontStyle: 'italic' }}>
+                     {project.metadata.subtitle}
+                    </span>
                 </div>
               </div>
             </div>
