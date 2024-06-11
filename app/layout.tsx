@@ -53,7 +53,7 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-2 mx-4 flex flex-col px-2 md:px-0">
+        <main className="flex-auto min-w-0 mt-2 mx-4 flex flex-col px-2">
           <Navbar />
           {children}
           <Footer />
