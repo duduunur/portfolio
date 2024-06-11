@@ -1,12 +1,6 @@
+
 module.exports = {
-    theme: {
-      extend: {
-        screens: {
-          'betterhover': {'raw': '(hover: hover)'},
-        },
-      },
+    future: {
+      hoverOnlyWhenSupported: true,
     },
-    variants: {},
-    plugins: [],
   }
-  
