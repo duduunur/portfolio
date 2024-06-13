@@ -73,19 +73,23 @@ export default function Work({ params }) {
   }
 
   return (
+    <div className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mt-8 lg:mx-auto">
     <section>
+      
           <a
             className="transition-all hover:text-neutral-700 dark:hover:text-neutral-100"
             href="/"
           >
             <ArrowIcon/>
           </a>
-      <h1 className="mt-2 title font-medium text-2xl tracking-tighter">
+      <h1 className="mt-5 title font-medium text-2xl tracking-tighter">
         {project.metadata.title}
       </h1>
       <article className="prose">
         <CustomMDX source={project.content} />
       </article>
+     
     </section>
+    </div>
   )
 }
