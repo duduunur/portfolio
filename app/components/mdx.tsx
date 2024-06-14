@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
-import { useInView } from 'react-intersection-observer';
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -46,27 +45,7 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  const { ref, inView } = useInView ({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  console.log('ref:', ref);
-  console.log('inView:', inView);
-
-  return (
-    <div 
-      ref={ref} 
-      className={`hidden md:flex justify-center relative overflow-hidden transition-opacity duration-700 ${inView ? 'opacity-100' : 'opacity-0'}`}
-    >
-      <Image 
-        alt={props.alt} 
-        className="md:w-[1300px] w-full h-full object-cover" 
-        {...props} 
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-black from-2%" />
-    </div>
-  );
+  return <Image alt={props.alt} className="" {...props} />
 }
 
 function Code({ children, ...props }) {
@@ -78,11 +57,11 @@ function slugify(str) {
   return str
     .toString()
     .toLowerCase()
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/&/g, '-and-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-');
+    .trim() // Remove whitespace from both ends of a string
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
+    .replace(/\-\-+/g, '-') // Replace multiple - with single -
 }
 
 function createHeading(level) {
