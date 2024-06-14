@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { highlight } from 'sugar-high'
 import React from 'react'
+import { useInView } from 'react-intersection-observer';
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -45,28 +46,48 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="" {...props} />
+  const { ref, inView } = useInView ({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  console.log('ref:', ref);
+  console.log('inView:', inView);
+
+  return (
+    <div 
+      ref={ref} 
+      className={`hidden md:flex justify-center relative overflow-hidden transition-opacity duration-700 ${inView ? 'opacity-100' : 'opacity-0'}`}
+    >
+      <Image 
+        alt={props.alt} 
+        className="md:w-[1300px] w-full h-full object-cover" 
+        {...props} 
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black from-2%" />
+    </div>
+  );
 }
 
 function Code({ children, ...props }) {
-  let codeHTML = highlight(children)
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+  let codeHTML = highlight(children);
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
 function slugify(str) {
   return str
     .toString()
     .toLowerCase()
-    .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/&/g, '-and-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
 }
 
 function createHeading(level) {
   const Heading = ({ children }) => {
-    let slug = slugify(children)
+    let slug = slugify(children);
     return React.createElement(
       `h${level}`,
       { id: slug },
@@ -78,12 +99,12 @@ function createHeading(level) {
         }),
       ],
       children
-    )
-  }
+    );
+  };
 
-  Heading.displayName = `Heading${level}`
+  Heading.displayName = `Heading${level}`;
 
-  return Heading
+  return Heading;
 }
 
 let components = {
@@ -97,7 +118,7 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
-}
+};
 
 export function CustomMDX(props) {
   return (
@@ -105,5 +126,5 @@ export function CustomMDX(props) {
       {...props}
       components={{ ...components, ...(props.components || {}) }}
     />
-  )
+  );
 }
