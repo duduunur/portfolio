@@ -17,7 +17,7 @@ export function Projects() {
         .map((project) => (
           <Link
             key={project.slug}
-            className="flex flex-col space-y-1"
+            className="flex flex-col -mx-1 space-y-1"
             href={`/work/${project.slug}`}
           >
             <div className="relative m-1 h-70">
