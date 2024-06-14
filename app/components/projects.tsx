@@ -20,7 +20,7 @@ export function Projects() {
             className="flex flex-col space-y-1"
             href={`/work/${project.slug}`}
           >
-            <div className="relative h-70">
+            <div className="relative m-1 h-70">
               <Image
                 alt={project.metadata.title}
                 src={project.metadata.image}
@@ -33,6 +33,10 @@ export function Projects() {
                    <span style={{ fontStyle: 'italic' }}>
                      {project.metadata.subtitle}
                     </span>
+                    <br />
+                   
+                     {project.metadata.publishedAt}
+
                 </div>
               </div>
             </div>

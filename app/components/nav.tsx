@@ -11,7 +11,7 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <aside className="-ml-[12px] mb-6 tracking-tight">
+    <aside className="-ml-[12px] mb-12 tracking-tight">
       <div className="lg:sticky lg:top-20">
       <div className="text-xl mt-2 ml-3 -mb-[10px]">Dudunur Isik</div>
       <nav
