@@ -1,4 +1,7 @@
 @import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @media (hover: hover) and (pointer: fine) {
   .hover\:underline:hover {

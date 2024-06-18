@@ -6,7 +6,7 @@ export function Projects() {
   let allProjects = getProjects();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-[2px]">
       {allProjects
         .sort((a, b) => {
           if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
@@ -17,7 +17,7 @@ export function Projects() {
         .map((project) => (
           <Link
             key={project.slug}
-            className="flex flex-col -mx-1 space-y-1"
+            className="flex flex-col space-y-1"
             href={`/work/${project.slug}`}
           >
             <div className="relative m-1 h-70">
