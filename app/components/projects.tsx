@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { formatDate, getProjects } from 'app/work/utils';
+import { getProjects } from 'app/work/utils';
 import Image from 'next/image';
 
 export function Projects() {
   let allProjects = getProjects();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -mx-[2px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
       {allProjects
         .sort((a, b) => {
           if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
@@ -20,7 +20,7 @@ export function Projects() {
             className="flex flex-col space-y-1"
             href={`/work/${project.slug}`}
           >
-            <div className="relative m-1 h-70">
+            <div className="relative h-70">
               <Image
                 alt={project.metadata.title}
                 src={project.metadata.image}
@@ -34,9 +34,7 @@ export function Projects() {
                      {project.metadata.subtitle}
                     </span>
                     <br />
-                   
                      {project.metadata.publishedAt}
-
                 </div>
               </div>
             </div>
