@@ -1,6 +1,7 @@
 import { Projects } from 'app/components/projects'
 
 export const metadata = {
+  index: false,
   title: 'Project',
   description: 'Here are my Projects.',
 }

@@ -82,8 +82,10 @@ export default function Work({ params }) {
           >
             <ArrowIcon/>
           </a>
-      <h1 className="mt-5 title font-medium text-2xl tracking-tighter">
-        {project.metadata.title}
+      <h1 className="mt-5 text-lg tracking-tight">
+        {project.metadata.title} <br/>
+        <p className="font-light italic">{project.metadata.subtitle}</p>
+        <p className="font-light">{project.metadata.publishedAt}</p>
       </h1>
       <article className="prose">
         <CustomMDX source={project.content} />
