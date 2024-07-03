@@ -3,10 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-a:hover { opacity:100; }
+
 
 @media (hover: none) {
-  a:hover { opacity: 0; duration:0 ; }
+  /* CSS-Regeln für Touchscreens (z.B. Smartphones, Tablets) */
+  a:hover {
+    /* Hier kannst du den Hover-Effekt deaktivieren */
+    /* Zum Beispiel: */
+    background-color: transparent !important; /* Hintergrundfarbe transparent machen */
+    color: inherit !important; /* Textfarbe auf die vererbte Farbe setzen */
+    text-decoration: none !important; /* Unterstreichung entfernen */  }
 }
 
 .custom-bg-opacity {
