@@ -6,7 +6,7 @@
 a:hover { opacity:100; }
 
 @media (hover: none) {
-  a:hover { opacity: 0; }
+  a:hover { opacity: 0; duration:0 ; }
 }
 
 .custom-bg-opacity {
