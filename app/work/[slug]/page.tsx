@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
-import { /*formatDate,*/ getProjects } from 'app/work/utils'
+import { /*formatDate,*/ /*getProjects*/ } from 'app/work/utils'
 import { baseUrl } from 'app/sitemap'
 
+{/* 
 export async function generateStaticParams() {
   let projects = getProjects()
 
@@ -79,7 +80,7 @@ export default function Work({ params }) {
             },
           }),
         }}
-      />*/}
+      />
       <h1 className="title font-semibold text-2xl tracking-tighter">
         {project.metadata.title}
       </h1>
@@ -89,10 +90,11 @@ export default function Work({ params }) {
           {formatDate(project.metadata.publishedAt)}
         </p>
       </div>
-    */}
+  
       <article className="prose">
         <CustomMDX source={project.content} />
       </article>
     </section>
   )
 }
+*/}
