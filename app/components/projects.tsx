@@ -27,8 +27,8 @@ export function Projects() {
                 width="600"
                 height="1000"
               />
-              <div className="absolute inset-0 z-10 flex text-l text-black bg-white font-light custom-bg-opacity opacity-0 hover:opacity-100 duration-300">
-               <div className="ml-3 mt-2">
+              <div className="absolute inset-0 z-10 flex text-l text-black bg-white font-light custom-bg-opacity opacity-0 hover:opacity-100 duration-300 hover-overlay">
+                <div className="ml-3 mt-2">
                  {project.metadata.title} <br />
                    <span style={{ fontStyle: 'italic' }}>
                      {project.metadata.subtitle}

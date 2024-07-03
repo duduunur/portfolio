@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (hover: hover) {
+  /* CSS-Regeln für Geräte mit Hover-Unterstützung (z.B. Desktops) */
+  .hover-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hover-overlay:hover {
+    opacity: 1;
+  }
+}
 
 
 @media (hover: none) {
@@ -13,6 +24,9 @@
     background-color: transparent !important; /* Hintergrundfarbe transparent machen */
     color: inherit !important; /* Textfarbe auf die vererbte Farbe setzen */
     text-decoration: none !important; /* Unterstreichung entfernen */  }
+    .hover-overlay {
+      display: none; /* Overlay auf Touchscreens verstecken */
+    }
 }
 
 .custom-bg-opacity {
