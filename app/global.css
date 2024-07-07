@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 @media (hover: hover) {
-  /* CSS-Regeln für Geräte mit Hover-Unterstützung (z.B. Desktops) */
   .hover-overlay {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -17,13 +16,10 @@
 
 
 @media (hover: none) {
-  /* CSS-Regeln für Touchscreens (z.B. Smartphones, Tablets) */
   a:hover {
-    /* Hier kannst du den Hover-Effekt deaktivieren */
-    /* Zum Beispiel: */
-    background-color: transparent !important; /* Hintergrundfarbe transparent machen */
-    color: inherit !important; /* Textfarbe auf die vererbte Farbe setzen */
-    text-decoration: none !important; /* Unterstreichung entfernen */  }
+    background-color: transparent !important; 
+    color: inherit !important; 
+    text-decoration: none !important;   }
     .hover-overlay {
       display: none; /* Overlay auf Touchscreens verstecken */
     }
