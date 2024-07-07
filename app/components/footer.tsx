@@ -26,8 +26,8 @@ export default function Footer() {
             target="_blank"
             href="https://github.com/duduunur"
           >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
+         
+            
           </a>
         </li>
       </ul>
