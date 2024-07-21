@@ -77,7 +77,7 @@ export default function Work({ params }) {
     <section>
       
           <a
-            className="transition-all hover:text-neutral-700 dark:hover:text-neutral-100"
+            className="transition-all hover:text-neutral-700 dark:hover:text-neutral-300"
             href="/"
           >
             <ArrowIcon/>

@@ -6,3 +6,60 @@ summary: ' '
 image: '/images/interview/cover2.png'
 ---
 
+<br/>
+<Image
+  alt="cover"
+  src={`/images/interview/cover.png`}
+  width={1218}
+  height={461}
+  style={{ margin: '0 auto' }}
+/>
+<br/>
+
+Das Projekt “Interview Simulation” ermöglicht dem Nutzer, mithilfe einer KI-basierten Gesprächsimulation auf ein 
+Bewerbungsgespräch vorzubereiten. 
+
+Das Ziel des Projektes war es, die konventionelle Nutzung von Large Language Models zu erweitern 
+und neue Wege der Interaktion zu erforschen. Dabei lag der Fokus auf der gestalterischen 
+Auseinandersetzung mit dem Text-basierten Interface von ChatGPT, um dessen Potenzial 
+über die vorgesehenen Kommunikationsmöglichkeiten hinaus zu erschließen.
+
+Der Nutzer erschafft den Kontext, indem er über die Schaltflächen den Beruf und die Länge 
+des Interviews auswählt. 
+Dieser Input wird genutzt, um einen Prompt zu erstellen.
+<br/>
+<Image
+  alt="prompt"
+  src={`/images/interview/prompt.png`}
+  width={1218}
+  height={461}
+  style={{ margin: '0 auto' }}
+/>
+<br/>
+Der Gesprächsablauf verläuft folgendermaßen:
+
+Eine vom LLM generierte Frage wird mithilfe von Text-to-Speech dem 
+Nutzer gestellt. Der Nutzer antwortet, und diese Antwort wird in 
+Echtzeit transkribiert und an das LLM weitergeleitet. Anschließend 
+stellt das LLM die nächste Frage. Wenn alle Fragen beantwortet sind, 
+endet das Gespräch.
+<br/>
+<Image
+  alt="interview"
+  src={`/images/interview/interview.png`}
+  width={1218}
+  height={461}
+  style={{ margin: '0 auto' }}
+/>
+<br/>
+Nach dem Gespräch evaluiert die KI die Antworten und gibt dem 
+Nutzer Feedback. Es folgt ein Feedback-Fenster, das dem Nutzer 
+ermöglicht, die Fragen und Antworten sowie das Feedback einzusehen.
+<br/>
+<Image
+  alt="flow"
+  src={`/images/interview/flow.png`}
+  width={1218}
+  height={461}
+  style={{ margin: '0 auto' }}
+/>
