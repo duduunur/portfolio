@@ -4,11 +4,11 @@ export const metadata = {
   title: 'Kontakt',
   description: 'Kontakt Informationen',
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
     },
   },
 }
