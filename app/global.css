@@ -1,4 +1,33 @@
 @import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (hover: hover) {
+  .hover-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hover-overlay:hover {
+    opacity: 1;
+  }
+}
+
+
+@media (hover: none) {
+  a:hover {
+    background-color: transparent !important; 
+    color: inherit !important; 
+    text-decoration: none !important;   }
+    .hover-overlay {
+      display: none; /* Overlay auf Touchscreens verstecken */
+    }
+}
+
+.custom-bg-opacity {
+  background-color: rgba(255, 255, 255, 0.7);
+}
 
 ::selection {
   background-color: #47a3f3;
@@ -147,4 +176,5 @@ table {
 
 .title {
   text-wrap: balance;
+  font-size: 18px;
 }
