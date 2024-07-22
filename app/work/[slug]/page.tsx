@@ -62,6 +62,14 @@ export function generateMetadata({ params }) {
       description,
       images: [ogImage],
     },
+    robots: {
+      index: false,
+      follow: false,
+      googleBot: {
+        index: false,
+        follow: false,
+      },
+    },
   }
 }
 
