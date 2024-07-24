@@ -21,9 +21,9 @@ export default function Page() {
           className="flex items-center transition-all hover:text-neutral-700 dark:hover:text-neutral-300 font-light"
           rel="noopener noreferrer"
           target="_blank"
-          href="mailto:hello@dudunurisik.de"
+          href="mailto:dudunurisik@gmail.com"
         >
-        <p className="ml-0 h-7">hello@dudunurisik.de</p>
+        <p className="ml-0 h-7">dudunurisik@gmail.com</p>
       </a>
     </section>
   )
