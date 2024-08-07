@@ -64,10 +64,10 @@ export function generateMetadata({ params }) {
     },
     robots: {
       index: false,
-      follow: false,
+      follow: true,
       googleBot: {
         index: false,
-        follow: false,
+        follow: true,
       },
     },
   }

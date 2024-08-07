@@ -6,10 +6,10 @@ export const metadata = {
   // hier entscheiden, obs indexiert werden soll oder nicht 
   robots: {
     index: false,
-    follow: false,
+    follow: true,
     googleBot: {
       index: false,
-      follow: false,
+      follow: true,
     },
   },
 }
