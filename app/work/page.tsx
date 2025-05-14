@@ -5,10 +5,10 @@ export const metadata = {
   description: 'Here are my Projects.',
   // hier entscheiden, obs indexiert werden soll oder nicht 
   robots: {
-    index: false,
+    index: true,
     follow: true,
     googleBot: {
-      index: false,
+      index: true,
       follow: true,
     },
   },
