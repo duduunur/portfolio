@@ -93,7 +93,7 @@ export default function Work({ params }) {
       <h1 className="mt-5 text-lg tracking-tight">
         {project.metadata.title} <br/>
         <p className="font-light italic">{project.metadata.subtitle}</p>
-        <p className="font-light">{project.metadata.publishedAt}</p>
+        <p className="font-light">{new Date(project.metadata.publishedAt).getFullYear()}</p>
       </h1>
       <article className="prose">
         <CustomMDX source={project.content} />
