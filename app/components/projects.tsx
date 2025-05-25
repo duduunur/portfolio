@@ -34,7 +34,7 @@ export function Projects() {
                      {project.metadata.subtitle}
                     </span>
                     <br />
-                     {project.metadata.publishedAt}
+                     {new Date(project.metadata.publishedAt).getFullYear()}
                 </div>
               </div>
             </div>
