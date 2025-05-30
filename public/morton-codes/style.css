@@ -1,7 +1,9 @@
 @media (max-width: 768px) {
-  body {
+  .scaled-mobile {
     transform: scale(0.5);
-    transform-origin: top center;
+    transform-origin: top left;
+    width: 200%;
+    height: 200%;
   }
 }
 
