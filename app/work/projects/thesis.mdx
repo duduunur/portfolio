@@ -1,0 +1,84 @@
+---
+title: 'Bachelor Thesis'
+subtitle: 'Softwareentwicklung'
+publishedAt: '4-3-2025'
+summary: 'Entwicklung einer interaktiven Applikation zur grafischen Veranschaulichung der Berechnung von zwei- und dreidimensionalen Morton-Codes'
+image: '/images/thesis/cover.png'
+---
+Multidimensionale Vektoren werden in Computerprogrammen in der Regel linear gespeichert, wobei 
+zwischen einer zeilenweisen und einer spaltenweisen Anordnung unterschieden wird. Die 
+Morton-Ordnung, auch als Z-Ordnung bekannt, stellt eine alternative Methode zur zeilen- und 
+spaltenweisen Anordnung dar. Diese hat die Eigenschaft, die Datenlokalität von Punkten zu erhalten.
+Die Morton-Ordnung basiert auf dem bitweisen Verschränken der Koordinaten eines Punktes, wodurch 
+der sogenannte Morton-Code entsteht.
+
+Im Rahmen meiner Bachelorarbeit habe ich eine interaktive Applikation mit HTML, JavaScript und CSS entwickelt, welche die Berechnung 
+von Morton-Codes sowie das Rechnen mit Morton-Codes grafisch darstellt. Außerdem habe ich eine Performance-Studie mit C++
+durchgeführt, welche die Effizienz verschiedener Speicherlayouts für mehrdimensionale Daten vergleicht.
+
+<a href="/morton-codes/index.html">Zur Applikation</a> (Für Mobilgeräte nicht optimiert)
+<br />
+<Image
+  alt="Mockup"
+  src={`/images/thesis/cover.png`}
+  width={1920}
+  height={1080}
+  style={{ margin: '0 auto' }}
+/>
+<br />
+
+Die Applikation ermöglicht die Berechnung von Morton-Codes anhand benutzerdefinierter Parameter 
+wie Bitlänge und Dimension. Bei einer Dimension von 3 kann der Nutzer zusätzlich das Koordinatenlayout 
+(„xyz“ oder „zyx“) wählen, was die Reihenfolge der Bitverknüpfung beeinflusst. Die Eingabefelder 
+passen sich automatisch an die gewählte Dimension an.
+<br />
+<Image
+  alt="Einstellen"
+  src={`/images/thesis/settingsbereich.png`}
+  width={1920}
+  height={1080}
+  style={{ margin: '0 auto' }}
+/>
+<br />
+
+Der maximal zulässige Koordinatenwert wird aus der Bitlänge und Dimension berechnet und angezeigt. 
+Der Nutzer kann Morton-Codes für zwei Punkte (a und b) berechnen, wobei die Eingaben auf Gültigkeit 
+geprüft werden. Ungültige Eingaben führen zu Fehlermeldungen.
+
+Die Berechnung erfolgt mittels zwei Algorithmen (For-Loop und Magic-Bits), deren Schritte und Quellcodes einsehbar sind.
+<br />
+<Image
+  alt="Berechnung"
+  src={`/images/thesis/berechnung.png`}
+  width={1920}
+  height={1080}
+  style={{ margin: '0 auto' }}
+/>
+<br />
+
+Zusätzlich können zwei Morton-Codes addiert oder subtrahiert werden. Dabei werden auch die Rechenschritte 
+in scrollbaren Containern angezeigt.
+<br />
+<Image
+  alt="Addition"
+  src={`/images/thesis/addandsubcontainer.png`}
+  width={1920}
+  height={1080}
+  style={{ margin: '0 auto' }}
+/>
+<br />
+
+Eine weitere Funktion ist die Visualisierung von Stencils. Der zentrale Punkt und seine Nachbarn 
+werden grafisch angezeigt, wobei ungültige Nachbarpunkte grau markiert werden. Koordinaten und Morton-Codes
+dieser Punkte werden unterhalb der Grafik gelistet.
+<br />
+<Image
+  alt="Stencil"
+  src={`/images/thesis/stencil.png`}
+  width={1920}
+  height={1080}
+  style={{ margin: '0 auto' }}
+/>
+<br />
+
+

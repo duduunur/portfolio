@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morton Codes / Z-Order</title>
+    <link rel="stylesheet" href="prism.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="displayMaxCoord()">
+    <h2>Morton Codes / Z-Order</h2>
+
+    <!-------------------------------------------------------------- Einstellungen --------------------------------------------------------------->
+
+    <div class="container">
+        <div class="settings">
+            <div class="select-group">
+                <label for="bitLength">bit length:</label>
+                <select id="bitLength" onchange="handleSettingsChange()">
+                    <option value="16" selected>16</option>
+                    <option value="32">32</option>
+                    <option value="64">64</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <label for="dimension">dimension:</label>
+                <select id="dimension"
+                    onchange="handleSettingsChange()">
+                    <option value= 2 selected>2D</option>
+                    <option value= 3 >3D</option>
+                </select>
+            </div>
+
+            <div class="select-group hidden" id="layoutContainer">
+                <label for="layout" id="layoutLabel">layout:</label>
+                <select id="layout"
+                    onchange="handleSettingsChange()">
+                    <option value="xyz">x, y, z</option>
+                    <option value="zyx">z, y, x</option>
+                </select>
+                <div class="svg-container">
+                    <img id="layoutImage" src="assets/xyz.svg">
+                </div>
+            </div>
+        </div>
+
+        <div class="displayMaxCoord">
+            <div id="maxCoord">Maximum Coordinate Value: </div>
+        </div>
+
+
+
+        <!-------------------------------------------------------------- Point A --------------------------------------------------------------->
+
+        <div id="point-a" class="point">
+            <!-- Eingabebereich -->
+            <div class="input-section">
+                <span class="label">point a:</span>
+                <div id="a-coordinateInputs" class="coordinateInputs">
+                    <label for="a-x">x:</label>
+                    <div class="input-group">
+                        <input id="a-x">
+                        <div id="a-xError" class="error"></div>
+                    </div>
+
+                    <label for="a-y">y:</label>
+                    <div class="input-group">
+                        <input id="a-y">
+                        <div id="a-yError" class="error"></div>
+                    </div>
+
+                    <label for="a-z" id="a-zLabel" class="hidden">z:</label>
+                    <div id="a-zInput" class="input-group hidden">
+                        <input id="a-z">
+                        <div id="a-zError" class="error"></div>
+                    </div>
+
+                    <div id="a-calculateButton">
+                        <button onclick="calculateMortonCode(pointA)">calculate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ausgabebereich -->
+            <div class="output">
+                <!-- For-Loop -->
+                <div class="output-section">
+                    <div id="a-magicBitsCodeContainer" class="hidden code-container"></div>
+                    <div id="a-forLoopHeader" class="header-section">
+                        <h3>method: for loop</h3>
+                        <button id="a-show-code-btn" class="show-code-btn"
+                            onclick="showSourceCode('a-forLoopCodeContainer', 'a-magicBitsHeader', 'a-show-code-btn', 'a-resultMagicBits', forLoopCode)">
+                            show source code</button>
+                    </div>
+                    <div id="a-resultForLoop" class="result"></div>
+                </div>
+
+                <!-- Magic Bits -->
+                <div class="output-section">
+                    <div id="a-forLoopCodeContainer" class="hidden code-container"></div>
+                    <div id="a-magicBitsHeader" class="header-section">
+                        <h3>method: magic bits</h3>
+                        <button id="a-show-code-btn2" class="show-code-btn"
+                            onclick="showSourceCode('a-magicBitsCodeContainer', 'a-forLoopHeader','a-show-code-btn2','a-resultForLoop', 'magicBitsCode')">
+                            show source code</button>
+                    </div>
+                    <div id="a-resultMagicBits" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-------------------------------------------------------------- Point B --------------------------------------------------------------->
+
+        <div id="point-b" class="point">
+            <!-- Eingabebereich -->
+            <div class="input-section">
+                <span class="label">point b:</span>
+                <div id="b-coordinateInputs" class="coordinateInputs">
+                    <label for="b-x">x:</label>
+                    <div class="input-group">
+                        <input id="b-x">
+                        <div id="b-xError" class="error"></div>
+                    </div>
+
+                    <label for="b-y">y:</label>
+                    <div class="input-group">
+                        <input id="b-y">
+                        <div id="b-yError" class="error"></div>
+                    </div>
+
+                    <label for="b-z" id="b-zLabel" class="hidden">z:</label>
+                    <div id="b-zInput" class="input-group hidden">
+                        <input id="b-z">
+                        <div id="b-zError" class="error"></div>
+                    </div>
+                    <div id="b-calculateButton">
+                        <button onclick="calculateMortonCode(pointB)">calculate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ausgabebereich -->
+            <div class="output">
+                <!-- For-Loop -->
+                <div class="output-section">
+                    <div id="b-magicBitsCodeContainer" class="hidden code-container"></div>
+                    <div id="b-forLoopHeader" class="header-section">
+                        <h3>method: for loop</h3>
+                        <button id="b-show-code-btn" class="show-code-btn"
+                            onclick="showSourceCode('b-forLoopCodeContainer', 'b-magicBitsHeader', 'b-show-code-btn', 'b-resultMagicBits', forLoopCode)">
+                            show source code</button>
+                    </div>
+                    <div id="b-resultForLoop" class="result"></div>
+                </div>
+
+                <!-- Magic Bits -->
+                <div class="output-section">
+                    <div id="b-forLoopCodeContainer" class="hidden code-container"></div>
+                    <div id="b-magicBitsHeader" class="header-section">
+                        <h3>method: magic bits</h3>
+                        <button id="b-show-code-btn2" class="show-code-btn"
+                            onclick="showSourceCode('b-magicBitsCodeContainer', 'b-forLoopHeader','b-show-code-btn2','b-resultForLoop', 'magicBitsCode')">
+                            show source code</button>
+                    </div>
+                    <div id="b-resultMagicBits" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <!------------------------------------------------------------------ Addition and Subtraktion --------------------------------------------------------------------->
+
+        <div id="addition" class="arithmetic">
+            <div class="input-section">
+                <span class="label">a + b</span>
+                <div id="a+b-calculateButton">
+                    <button onclick="addition()">calculate</button>
+                </div>
+                <div id="additionError" class="arithError"></div>
+            </div>
+
+            <div class="output">
+                <div id="resultAddition" class="resultArithmetic"></div>
+            </div>
+        </div>
+
+        <div id="subtraction" class="arithmetic">
+            <div class="input-section">
+                <span class="label">a - b</span>
+                <div id="a-b-calculateButton">
+                    <button onclick="subtraction()">calculate</button>
+                </div>
+                <div id="subtractionError" class="arithError"></div>
+            </div>
+            <div class="output">
+                <div id="resultSubtraction" class="resultArithmetic"></div>
+            </div>
+        </div>
+
+        <!-------------------------------------------------------------------------- Stencils ----------------------------------------------------------------------->
+
+        <div id="stencilContainer-a" class="stencil">
+            <div class="input-section">
+                <span class="label">stencil point a</span>
+            </div>
+            <div class="output" style="overflow: hidden;">
+                <div id="resultStencil-a" class="resultStencil">
+                    <canvas id="canvasStencil-a"></canvas>
+                    <div id="stencilResult-a" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="stencilContainer-b" class="stencil">
+            <div class="input-section">
+                <span class="label">stencil point b</span>
+            </div>
+            <div class="output" style="overflow: hidden;">
+                <div id="resultStencil-b" class="resultStencil">
+                    <canvas id="canvasStencil-b"></canvas>
+                    <div id="stencilResult-b" class="result"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="prism.js"></script>
+<script src="script.js"></script>
+
+</html>
