@@ -1,8 +1,6 @@
 @media (max-width: 768px) {
   body {
-    width: 50%;
-    margin: 0 auto;
-    transform: scale(0.9);
+    transform: scale(0.5);
     transform-origin: top center;
   }
 }
