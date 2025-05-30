@@ -1,0 +1,354 @@
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 11pt;
+    margin: 60px;
+    background-color: #f0f0f0;
+}
+
+h2 {
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-family: monospace;
+    font-weight: 500;
+    font-size: 10pt;
+    padding: 5px;
+}
+
+h4 {
+    font-family: monospace;
+    font-size: 9.5pt;
+}
+
+h5 {
+    font-family: monospace;
+    font-size: 9pt;
+}
+
+label {
+    font-weight: 380;
+    margin-top: 5px;
+}
+
+p {
+    font-family: monospace;
+}
+
+.label {
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+}
+
+.select-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 30%;
+}
+
+.select-group:after {
+    content: "⌄"; 
+    position: relative;
+    right: 12px; 
+    bottom: 2px;
+    color: #303030; 
+    font-size: 12px;
+}
+
+#layoutContainer:after{ 
+    right: 65px; 
+    bottom: 2px;
+}
+
+.select-group select {
+    margin-left: auto;
+    color: #303030;
+    border: none; 
+    padding: 4px 24px 4px 8px; 
+    border-radius: 10px;
+    appearance: none; 
+    font-size: 10pt;
+    outline: none; 
+}
+
+/* Hover-Effekt */
+.select-group select:hover {
+    background-color:  #f8f8f8;
+}
+
+.settings {
+    height: 135px; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.displayMaxCoord {
+    color: #636363;
+    font-weight: 380;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 27%;
+}
+
+
+.point, .arithmetic, .stencil {
+    display: flex;
+    flex-direction: column; 
+    min-height: 250px;
+    margin-bottom: 20px;
+    border: 0.5px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+.stencil {
+    height: 250px;
+    overflow: hidden;
+}
+
+.stencil.expanded {
+    height: auto; 
+}
+
+.point {
+    resize: none;
+    max-height: 1000px;
+}
+
+.input-section {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.coordinateInputs {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* Container für jede Input-Gruppe */
+.input-group {
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 2px;
+    height: 45px;
+   
+}
+
+/* Fehlermeldungen */
+.error {
+    color: red;
+    font-size: 8pt;
+    font-weight: 350;
+    margin-top: 5px;
+    display: none; 
+}
+
+.arithError {
+    color: red;
+    font-size: 10pt;
+    font-weight: 350;
+    padding-top: 6px;
+    display: none;
+}
+
+.coordinateInputs {
+    display: flex;
+    gap: 20px;
+}
+
+input, select, button {
+    background-color: white;
+    padding: 5px;
+    border: 0.5px solid #ccc;
+    border-radius: 4px;
+    font-size: 11px;
+    outline: none; /* Entfernt den blauen Fokusrahmen */
+    cursor: pointer;
+}
+
+#layout {
+    height: 45px; 
+    border-radius: 15px;
+}
+
+input {
+    width: 200px;
+}
+
+button:hover {
+    background: #efefef;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Fehler-Stil (roter rand)*/
+.input-error {
+    border: 1px solid red;
+}
+
+.output {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    font-family: monospace;
+    font-size: 9pt;
+    padding: 10px;
+    flex-grow: 1; 
+    overflow-y: auto;
+  }
+  
+  .output-section {
+    width: 50%;
+    border: 0.5px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .labels {
+    font-family: monospace;
+    font-size: 9pt;
+    text-align: left;
+    margin-right: 10px;
+}
+
+  .result-section {
+    width: 79%; 
+    padding: 10px;
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .result, .resultForLoop{
+    margin-top: 10px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.resultArithmetic, .resultStencil {
+    width: 100%;
+    border: 0.5px solid #ddd;
+    padding: 20px;
+    margin: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column; 
+    font-family: monospace;
+}
+
+.resultArithmetic{
+    overflow-y: auto;
+    max-height: 850px;
+}
+
+#stencilResult-a.result{
+    min-height: 100px;
+    max-height: 765px;
+}
+#stencilResult-b.result{
+    min-height: 100px;
+    max-height: 765px;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: flex-start;
+    font-family: monospace;
+    font-size: 9pt;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+
+.color-x { color: #DC0909; }
+.color-y { color: #151BB9; }
+.color-z { color: #0C9329; }
+.color-a { color: #C03594;}
+.color-b { color: #873CE9;}
+
+.binary{
+    font-family: monospace;
+    font-size: 9pt;
+    margin-bottom: 10px;
+}
+
+.show-code-btn {
+    background-color: white;
+    color: #3c3c3c;
+    border: 0.5px solid #ccc;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 12px;
+    outline: none; 
+    min-width: 110px; 
+    text-align: center; 
+}
+
+.show-code-btn:hover {
+    background-color: #e5e5e5;
+}
+
+.code-container {
+    position: relative;
+    overflow-y: auto;
+    font-size: 9pt;
+}
+
+
+.header-section {
+    display:flex;
+    justify-content:space-between;
+}
+.hidden {
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.svg-container {
+    width: 35px;
+    height: 35px;
+    margin-left: 7px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 5px;
+}
