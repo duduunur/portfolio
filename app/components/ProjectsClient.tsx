@@ -31,20 +31,28 @@ export function ProjectsClient({ allProjects }) {
 
   return (
     <div>
-      <div className="flex flex-row space-x-0 pr-10 text-xl font-light">
-        <button onClick={() => setFilter('all')} className={`transition-all hover:text-neutral-700 dark:hover:text-neutral-300 flex align-middle relative py-1 px-2 ${filter === 'all' ? 'underline' : ''}`}>
-          Alle
+      <div className="flex flex-row space-x-0 pr-10 text-xl font-light -ml-2 mb-5">
+        <button onClick={() => setFilter('all')} className={`transition-all hover:text-neutral-700 dark:hover:text-neutral-300 flex align-middle relative py-1 px-2 ${filter === 'all' ? '' : 'text-neutral-300 dark:text-neutral-600'}`}>
+          Alle Projekte
         </button>
-        <button onClick={() => setFilter('software')} className={`transition-all hover:text-neutral-700 dark:hover:text-neutral-300 flex align-middle relative py-1 px-2 ${filter === 'software' ? 'underline' : ''}`}>
-          Softwareentwicklung
+        <button onClick={() => setFilter('software')} className={`transition-all hover:text-neutral-700 dark:hover:text-neutral-300 flex align-middle relative py-1 px-2 ${filter === 'software' ? '' : 'text-neutral-300 dark:text-neutral-600'}`}>
+          Coding
         </button>
-        <button onClick={() => setFilter('design')} className={`transition-all hover:text-neutral-700 dark:hover:text-neutral-300 flex align-middle relative py-1 px-2 ${filter === 'design' ? 'underline' : ''}`}>
+        <button onClick={() => setFilter('design')} className={`transition-all hover:text-neutral-700 dark:hover:text-neutral-300 flex align-middle relative py-1 px-2 ${filter === 'design' ? '' : 'text-neutral-300 dark:text-neutral-600'}`}>
           Design
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-3">
-        {filteredProjects.map((project) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-10">
+        {filteredProjects
+        .sort((a, b) => {
+          if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+            return -1;
+          }
+          return 1;
+        })
+
+        .map((project) => (
           <Link key={project.slug} className="flex flex-col space-y-1" href={`/work/${project.slug}`}>
             <div className="relative h-70">
               <Image

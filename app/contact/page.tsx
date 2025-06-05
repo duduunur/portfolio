@@ -23,7 +23,7 @@ export default function Page() {
           target="_blank"
           href="mailto:dudunurisik@gmail.com"
         >
-        <p className="ml-0 h-7">dudunurisik@gmail.com</p>
+        <p className="ml-0 mt-10 h-7">dudunurisik@gmail.com</p>
       </a>
     </section>
   )
