@@ -15,7 +15,7 @@ export function Navbar() {
   const pathname = usePathname();
   
   return (
-    <aside className="-ml-[12px] mb-12 tracking-tight">
+    <aside className="-ml-[12px] tracking-tight">
       <div className="lg:sticky lg:top-20">
         <div className="text-xl mt-2 ml-3 -mb-[10px]">Dudunur Isik</div>
         <nav
