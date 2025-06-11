@@ -3,19 +3,26 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, useSearchParams } from 'next/navigation'; // um filter in url zu speichern 
 
 export function ProjectsClient({ allProjects }) {
-  const [filter, setFilter] = useState<'all' | 'software' | 'design'>('all');
-  const [hasMounted, setHasMounted] = useState(false);
-
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  
+  const initialFilter = (searchParams.get('filter') as 'all' | 'software' | 'design') ?? 'all';
+  const [filter, setFilter] = useState(initialFilter);
+  
+  // Update URL wenn sich der Filter ändert
   useEffect(() => {
-    setHasMounted(true);
-  }, []);
+    const params = new URLSearchParams(window.location.search);
+    if (filter === 'all') {
+      params.delete('filter');
+    } else {
+      params.set('filter', filter);
+    }
+    router.replace(`/?${params.toString()}`, { scroll: false });
+  }, [filter]);
 
-  if (!hasMounted) {
-    // Damit wird clientseitig exakt das gleiche gerendert wie serverseitig
-    return null;
-  }
 
   const filteredProjects =
     filter === 'all'
@@ -53,7 +60,7 @@ export function ProjectsClient({ allProjects }) {
         })
 
         .map((project) => (
-          <Link key={project.slug} className="flex flex-col space-y-1" href={`/work/${project.slug}`}>
+          <Link key={project.slug} className="flex flex-col space-y-1" href={`/work/${project.slug}?filter=${filter}`}>
             <div className="relative h-70">
               <Image
                 alt={project.metadata.title}

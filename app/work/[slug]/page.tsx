@@ -73,23 +73,29 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Work({ params }) {
-  let project = getProjects().find((project) => project.slug === params.slug)
+export default function Work({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: { filter?: string };
+}) {
+  const filter = searchParams?.filter ?? 'all';
+  const project = getProjects().find((p) => p.slug === params.slug);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
-    <div className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mt-8 lg:mx-auto">
-    <section>
-      
-          <a
-            className="transition-all hover:text-neutral-700 dark:hover:text-neutral-300"
-            href="/"
-          >
-            <ArrowIcon/>
-          </a>
+      <div className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mt-20 lg:mx-auto">
+      <section>
+        <a
+          href={`/?filter=${filter}`}
+          className="transition-all hover:text-neutral-700 dark:hover:text-neutral-300"
+        >
+          <ArrowIcon />
+        </a>
       <h1 className="mt-5 text-lg tracking-tight">
         {project.metadata.title} <br/>
         <p className="font-light italic">{project.metadata.subtitle}</p>
