@@ -1,4 +1,8 @@
 import { Projects } from 'app/components/projects'
+import { ProjectsClient } from 'app/components/ProjectsClient';
+import { getProjects } from 'app/work/utils';
+import { Suspense } from 'react';
+
 
 export const metadata = {
   title: 'Project',
